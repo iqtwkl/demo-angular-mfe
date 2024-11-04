@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BlueBuyBtnComponent } from './blue-buy-btn/blue-buy-btn.component';
+import { BlueBasketCmpComponent } from './blue-basket-cmp/blue-basket-cmp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlueBuyBtnComponent
+    BlueBuyBtnComponent,
+    BlueBasketCmpComponent
   ],
   imports: [
     BrowserModule

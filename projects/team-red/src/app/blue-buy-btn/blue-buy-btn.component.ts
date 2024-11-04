@@ -19,9 +19,7 @@ export class BlueBuyBtnComponent implements OnInit {
       exposedModule: './BlueBuyCmp',
       
     });
-    console.log(BlueBuyModule);
     const componentRef: ComponentRef<{}> = this.vcref.createComponent(BlueBuyModule.BlueBuyComponent);
-    console.log(componentRef);
   }
 
 }
