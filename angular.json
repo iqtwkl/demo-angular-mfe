@@ -123,7 +123,7 @@
 			"prefix": "app",
 			"architect": {
 				"build": {
-					"builder": "@angular-devkit/build-angular:browser",
+					"builder": "ngx-build-plus:browser",
 					"options": {
 						"outputPath": "dist/team-blue",
 						"index": "projects/team-blue/src/index.html",
@@ -137,7 +137,9 @@
 						"styles": [
 							"projects/team-blue/src/styles.css"
 						],
-						"scripts": []
+						"scripts": [],
+						"extraWebpackConfig": "projects/team-blue/webpack.config.js",
+						"commonChunk": false
 					},
 					"configurations": {
 						"production": {
@@ -159,7 +161,8 @@
 									"with": "projects/team-blue/src/environments/environment.prod.ts"
 								}
 							],
-							"outputHashing": "all"
+							"outputHashing": "all",
+							"extraWebpackConfig": "projects/team-blue/webpack.prod.config.js"
 						},
 						"development": {
 							"buildOptimizer": false,
@@ -173,21 +176,28 @@
 					"defaultConfiguration": "production"
 				},
 				"serve": {
-					"builder": "@angular-devkit/build-angular:dev-server",
+					"builder": "ngx-build-plus:dev-server",
 					"configurations": {
 						"production": {
-							"browserTarget": "team-blue:build:production"
+							"browserTarget": "team-blue:build:production",
+							"extraWebpackConfig": "projects/team-blue/webpack.prod.config.js"
 						},
 						"development": {
 							"browserTarget": "team-blue:build:development"
 						}
 					},
-					"defaultConfiguration": "development"
+					"defaultConfiguration": "development",
+					"options": {
+						"port": 4201,
+						"publicHost": "http://localhost:4201",
+						"extraWebpackConfig": "projects/team-blue/webpack.config.js"
+					}
 				},
 				"extract-i18n": {
-					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"builder": "ngx-build-plus:extract-i18n",
 					"options": {
-						"browserTarget": "team-blue:build"
+						"browserTarget": "team-blue:build",
+						"extraWebpackConfig": "projects/team-blue/webpack.config.js"
 					}
 				},
 				"test": {

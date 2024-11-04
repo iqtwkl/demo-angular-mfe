@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { loadRemoteModule } from '@angular-architects/module-federation';
+import { Component, ComponentRef, OnInit, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-blue-buy-btn',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlueBuyBtnComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private vcref: ViewContainerRef
+  ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    const BlueBuyModule = await loadRemoteModule({
+      type: 'module',
+      remoteEntry: 'http://localhost:4201/remoteEntry.js',
+      exposedModule: './BlueBuyCmp',
+      
+    });
+    console.log(BlueBuyModule);
+    const componentRef: ComponentRef<{}> = this.vcref.createComponent(BlueBuyModule.BlueBuyComponent);
+    console.log(componentRef);
   }
 
 }
