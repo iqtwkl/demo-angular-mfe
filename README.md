@@ -15,7 +15,8 @@ Team Blue should running before Team Red
 
 ## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Go through your app's project folder. example team-blue `cd projects/team-blue/src/app`
+- Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
