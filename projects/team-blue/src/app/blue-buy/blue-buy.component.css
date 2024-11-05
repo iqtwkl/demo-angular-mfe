@@ -17,3 +17,7 @@ button:hover {
 button:active {
     border-color: seagreen;
 }
+
+.team-blue {
+    border: 1px dashed blue;
+}

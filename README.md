@@ -4,7 +4,14 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Team Blue
+Run `ng serve team-blue` for a dev server. Navigate to `http://localhost:4201/`. The application will automatically reload if you change any of the source files.
+
+### Team Red
+Run `ng serve team-red` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+### Important
+Team Blue should running before Team Red
 
 ## Code scaffolding
 
