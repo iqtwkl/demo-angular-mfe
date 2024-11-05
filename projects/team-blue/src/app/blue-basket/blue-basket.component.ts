@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-blue-basket',
@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./blue-basket.component.css']
 })
 export class BlueBasketComponent implements OnInit { 
-  @Input() buyItem: string = ''; // This will hold the latest item to add
+  @Input() buyItem = new EventEmitter<string>();
   classname: string = '';
   count: number = 0;
   items: string[] = [];
@@ -15,12 +15,10 @@ export class BlueBasketComponent implements OnInit {
 
   ngOnInit(): void {
     this.count = this.items.length;
-  }
-
-  ngOnChanges(): void {
-    if (this.buyItem) {
-      this.addToBasket(this.buyItem);
-    }
+    this.buyItem.subscribe((event:string) => {
+      this.addToBasket(event);
+      console.log('items:', this.items)
+    });
   }
 
   addToBasket(sku: string) {

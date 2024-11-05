@@ -1,3 +1,10 @@
-<h1>Team Red</h1>
-<app-blue-basket-cmp></app-blue-basket-cmp>
-<app-blue-buy-btn></app-blue-buy-btn>
+<h1 id="store">The Model Store</h1>
+<app-blue-basket-cmp [buyItem]="buyItem"></app-blue-basket-cmp>
+<div id="image"><div><img [src]="variant.image" (alt)="variant.name" /></div></div>
+<h2 id="name">{{product.name}} <small>{{variant.name}}</small></h2>
+<div>
+    <a *ngFor="let variant of product.variants" type="button" [routerLink]="['']" [queryParams]="{variant: variant.sku}">
+        <img [src]="variant.thumb" [alt]="variant.name" />
+    </a>
+</div>
+<app-blue-buy-btn [sku]="selectedVariant" (buyItem)="onClick($event)"></app-blue-buy-btn>
